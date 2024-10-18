@@ -1,21 +1,21 @@
 export default class CompareHands {
 
-  static suits = '♥♦♣♠';
-  static ranks = '23456789TJQKA';
+  static suits = '♥♦♣♠';  //Färger
+  static ranks = '23456789TJQKA'; //Valör
 
   // return the winning hand
   static comparer(hand1, hand2) {
 
     let comparers = [
-      'isStraightFlush',
-      'isFourOfAKind',
-      'isFullHouse',
-      'isFlush',
-      'isStraight',
-      'isThreeOfAKind',
-      'isTwoPair',
-      'isOnePair',
-      'isHighestCard'
+      'isStraightFlush',  //Straight flush
+      'isFourOfAKind',    //Fyrtal
+      'isFullHouse',      //Kåk
+      'isFlush',          //Färg
+      'isStraight',       //Stege
+      'isThreeOfAKind',   //Tretal
+      'isTwoPair',        //Två par
+      'isOnePair',        //Par
+      'isHighestCard'     //Högsta kort
     ];
 
     for (let comparer of comparers) {
@@ -84,8 +84,25 @@ export default class CompareHands {
     return this.rankToPoint(ranks[4]);
   }
 
-  static isThreeOfAKind(hand) { // TODO!
+  static isThreeOfAKind(hand) { 
+    //Sorterart korten på hand
+    this.sortByRank(hand);
+    let ranks = this.numbOfOcurrences(hand);
+    let values = Object.values(ranks);
+
+    if (values.includes(3) && values.indexOf(3) === values.lastIndexOf(3)) {
+      return this.rankToPoint(Object.keys(ranks)[values.indexOf(3)])
+    }
     return 0;
+
+    // for (let card of hand.cards) {
+    //   ranks += card.rank;
+    // }
+
+    // if (rank === )
+      //Check for three of a kind
+      //Check its rank of both hands
+      //Chech the highest kicker card all above is equal
   }
 
   static isTwoPair(hand) { // TODO!
@@ -102,6 +119,15 @@ export default class CompareHands {
 
   // helper functions below:
 
+  static numbOfOcurrences(hand) {
+    let ranks = {};
+    for (let card of hand.cards) {
+      ranks[card.rank] = ranks[card.rank] || 0;
+      ranks[card.rank]++;
+    }
+    return ranks;
+  }
+
   static rankToPoint(rank) {
     return this.ranks.indexOf(rank) + 2;
   }
@@ -112,6 +138,5 @@ export default class CompareHands {
         -1 : 1;
     });
   }
-
 
 }
