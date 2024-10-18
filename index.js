@@ -12,15 +12,21 @@ import CompareHands from './CompareHands.js';
 // let hand2 = new Hand('♣9', '♣T', '♣J', '♣Q', '♣K');
 // console.log(CompareHands.comparer(hand1, hand2));
 
+// // Spelhand Fyrtal
+// let hand1 = new Hand('♥7', '♦7', '♣7', '♠3', '♠7');
+// let hand2 = new Hand('♣9', '♦9', '♠9', '♣9', '♣K');
+// console.log(CompareHands.comparer(hand1, hand2));
+
 // // Spelhand tretal
 // let hand1 = new Hand('♥7', '♦2', '♣7', '♠3', '♠7');
 // let hand2 = new Hand('♣9', '♦9', '♠9', '♣Q', '♣K');
 // console.log(CompareHands.comparer(hand1, hand2));
 
-// Spelhand Fyrtal
-let hand1 = new Hand('♥7', '♦7', '♣7', '♠3', '♠7');
-let hand2 = new Hand('♣9', '♦9', '♠9', '♣9', '♣K');
+// Spelhand tvåpar
+let hand1 = new Hand('♥7', '♦3', '♣7', '♠3', '♠8');
+let hand2 = new Hand('♣9', '♦2', '♠9', '♣Q', '♣K');
 console.log(CompareHands.comparer(hand1, hand2));
+
 
 // Deck = Kortlek
 // Suite = Färg

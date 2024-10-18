@@ -112,7 +112,14 @@ export default class CompareHands {
       //Chech the highest kicker card all above is equal
   }
 
-  static isTwoPair(hand) { // TODO!
+  static isTwoPair(hand) { 
+    this.sortByRank(hand);
+    let ranks = this.numbOfOcurrences(hand);
+    let values = Object.values(ranks);
+    
+    if (values.includes(2) && values.indexOf(1) && values.lastIndexOf(2) ) {
+      return this.rankToPoint(Object.keys(ranks)[values])
+    }
     return 0;
   }
 
