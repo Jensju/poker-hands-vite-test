@@ -39,7 +39,14 @@ export default class CompareHands {
     return this.isStraight(hand) && this.isFlush(hand);
   }
 
-  static isFourOfAKind(hand) { // TODO!
+  static isFourOfAKind(hand) { 
+    this.sortByRank(hand);
+    let ranks = this.numbOfOcurrences(hand);
+    let values = Object.values(ranks);
+
+    if (values.includes(4) && values.indexOf(4) === values.lastIndexOf(4)) {
+      return this.rankToPoint(Object.keys(ranks)[values.indexOf(4)])
+    }
     return 0;
   }
 
