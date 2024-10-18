@@ -51,6 +51,7 @@ export default class CompareHands {
   }
 
   static isFullHouse(hand) { // TODO!
+    // return this.isThreeOfAKind && this.isOnePair;
     return 0;
   }
 
@@ -118,17 +119,34 @@ export default class CompareHands {
     let values = Object.values(ranks);
     
     if (values.includes(2) && values.indexOf(1) && values.lastIndexOf(2) ) {
-      return this.rankToPoint(Object.keys(ranks)[values])
+      const pairOne = this.rankToPoint(Object.keys(ranks)[values.indexOf(2)])
+      const pairTwo = this.rankToPoint(Object.keys(ranks)[values.lastIndexOf(2)])
+      const kickCard = this.rankToPoint(Object.keys(ranks)[values.indexOf(1)])
+      return pairOne + pairTwo + kickCard
     }
     return 0;
   }
 
-  static isOnePair(hand) { // TODO!
+  static isOnePair(hand) { 
+    this.sortByRank(hand);
+    let ranks = this.numbOfOcurrences(hand);
+    let values = Object.values(ranks);
+    
+    if (values.includes(2) && values.indexOf(2)) {
+      const pairOne = this.rankToPoint(Object.keys(ranks)[values.indexOf(2)])
+      const kickCard = this.rankToPoint(Object.keys(ranks)[values.indexOf(1)])
+        + this.rankToPoint(Object.keys(ranks)[values.indexOf(1, 2)])
+        + this.rankToPoint(Object.keys(ranks)[values.indexOf(1, 3)]);
+      return pairOne + kickCard
+    }
     return 0;
   }
 
-  static isHighestCard(hand) { // TODO!
-    return 0;
+  static isHighestCard(hand) { //To be completed
+    // this.sortByRank(hand);
+    // let ranks = this.numbOfOcurrences(hand);
+    // let values = Object.values(ranks);
+    return 0;  //this.rankToPoint(Object.keys(ranks)[values]);
   }
 
   // helper functions below:
