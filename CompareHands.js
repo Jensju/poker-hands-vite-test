@@ -162,6 +162,7 @@ export default class CompareHands {
 
   static rankToPoint(rank) {
     return this.ranks.indexOf(rank) + 2;
+    // convert card rank to numb: 2 3 4 5 6 7 8 9 10 11 12 13 14
   }
 
   static sortByRank(hand) {

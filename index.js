@@ -24,13 +24,13 @@ import CompareHands from './CompareHands.js';
 
 // // Spelhand tvåpar
 // let hand1 = new Hand('♥7', '♦3', '♣7', '♠3', '♠8');
-// let hand2 = new Hand('♣9', '♦2', '♠9', '♣Q', '♣K');
+// let hand2 = new Hand('♣9', '♦K', '♠9', '♣Q', '♣K');
 // console.log(CompareHands.comparer(hand1, hand2));
 
 // Spelhand par
-let hand1 = new Hand('♥7', '♦3', '♣7', '♠J', '♠8');
-let hand2 = new Hand('♣9', '♦2', '♠K', '♣Q', '♣K');
-console.log(CompareHands.comparer(hand1, hand2));
+// let hand1 = new Hand('♥7', '♦3', '♣7', '♠J', '♠8');
+// let hand2 = new Hand('♣9', '♦2', '♠K', '♣Q', '♣K');
+// console.log(CompareHands.comparer(hand1, hand2));
 
 // Spelhand par
 // let hand1 = new Hand('♥7', '♦3', '♣6', '♠J', '♠8');
